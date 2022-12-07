@@ -13,7 +13,7 @@ export class ShowdbService {
     return this.http.get<string>(this.kvaasURL + 'get?key=' + key);
   }
 
-  public setData(key: string, value: string): Observable<string> {
+  public setData(key: string, value: any[]): Observable<string> {
     return this.http.post<string>(this.kvaasURL + 'set?key=' + key, value);
   }
 

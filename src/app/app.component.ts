@@ -7,10 +7,12 @@ import { ShowdbService } from './showdb.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // 7d12a638
+  // 628c28c4
   insertedKey: string;
+  createdKey: string;
   parterre: any[] = [];
   loges: any[] = [];
+  clicked = false;
 
   constructor(private dbservice: ShowdbService) {}
 
@@ -27,6 +29,33 @@ export class AppComponent {
       error: (err) => {
         div.innerHTML = '';
         div.innerHTML += 'Invalid Key!';
+      },
+    });
+  }
+
+  createKey() {
+    var newK = document.getElementById('newKey');
+    this.dbservice.newData().subscribe({
+      next: (newKey: any) => {
+        const key = newKey;
+        const theater = new Array(7)
+          .fill('')
+          .map(() => Array(10).fill('x'))
+          .concat(new Array(4).fill('').map(() => Array(6).fill('x')));
+        this.dbservice.setData(newKey, theater).subscribe({
+          next: (newKey: any) => {
+            this.clicked = true;
+            this.createdKey = key;
+            newK.innerHTML = '';
+            newK.innerHTML += 'New Key: ' + key;
+          },
+          error: (err) => {
+            console.error(`Observer error: ${JSON.stringify(err)}`);
+          },
+        });
+      },
+      error: (err) => {
+        console.error(`Observer error: ${JSON.stringify(err)}`);
       },
     });
   }

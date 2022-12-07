@@ -8,5 +8,11 @@
     Confirm
   </button>
 </p>
-<div id="errorDiv"> </div>
+<div id="errorDiv"></div>
+<p>
+  Dont have a Show Key?
+  <button [disabled]="clicked" (click)="createKey()">Create one!</button>
+</p>
+<div id="newKey"></div>
+
 <app-reservation-name [insertedKey]="insertedKey"> </app-reservation-name>
