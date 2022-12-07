@@ -1,0 +1,11 @@
+<p *ngIf="insertedKey !== undefined">
+  Insert Reservation Name for "{{ insertedKey }}" Show:
+  <br />
+  <input type="text" #tempName />
+  <button
+    role="button"
+    (click)="updateName(tempName.value); tempName.value = ''"
+  >
+    Confirm
+  </button>
+</p>

@@ -7,28 +7,27 @@ import { ShowdbService } from './showdb.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  insertedKey: string = '';
-  insertedName: string = '';
+  // 7d12a638
+  insertedKey: string;
   parterre: any[] = [];
   loges: any[] = [];
 
   constructor(private dbservice: ShowdbService) {}
 
   updateKey(key: string) {
+    var div = document.getElementById('errorDiv');
     this.dbservice.getData(key).subscribe({
       next: (x: any) => {
+        div.innerHTML = '';
+        this.insertedKey = key;
         const theater = JSON.parse(x);
         this.parterre = theater.slice(0, 7);
         this.loges = theater.slice(7);
-        this.insertedKey = key;
       },
-      error: (err) => alert('Invalid Show Key'),
+      error: (err) => {
+        div.innerHTML = '';
+        div.innerHTML += 'Invalid Key!';
+      },
     });
-    
   }
-
-  updateName(name: string){
-    this.insertedName = name;
-  }
-  
 }
