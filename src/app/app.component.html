@@ -3,14 +3,14 @@
 <p>
   Insert Show Key:
   <br />
-  <input type="text" #tempKey />
+  <input type="text" maxlength="9" #tempKey />
   <button role="button" (click)="updateKey(tempKey.value); tempKey.value = ''">
     Confirm
   </button>
 </p>
 
 <p *ngIf="insertedKey != ''">
-  Insert Reservation Name:
+  Insert Reservation Name for "{{ insertedKey }}" Show:
   <br />
   <input type="text" #tempName />
   <button
