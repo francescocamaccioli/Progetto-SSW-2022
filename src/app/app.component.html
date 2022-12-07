@@ -1,4 +1,22 @@
-<hello name="{{ name }}"></hello>
+<h1>Theater Show Booking</h1>
+
 <p>
-  Start editing to see some magic happen :)
+  Insert Show Key:
+  <br />
+  <input type="text" #tempKey />
+  <button role="button" (click)="updateKey(tempKey.value); tempKey.value = ''">
+    Confirm
+  </button>
+</p>
+
+<p *ngIf="insertedKey != ''">
+  Insert Reservation Name:
+  <br />
+  <input type="text" #tempName />
+  <button
+    role="button"
+    (click)="updateName(tempName.value); tempName.value = ''"
+  >
+    Confirm
+  </button>
 </p>
