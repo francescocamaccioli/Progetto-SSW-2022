@@ -1,18 +1,30 @@
 <h1>Theater Show Booking</h1>
-
 <p>
   Insert Show Key:
   <br />
   <input type="text" maxlength="9" #tempKey />
-  <button role="button" (click)="updateKey(tempKey.value); tempKey.value = ''">
+  <button (click)="updateKey(tempKey.value); tempKey.value = ''">
     Confirm
   </button>
 </p>
 <div id="errorDiv"></div>
 <p>
-  Dont have a Show Key?
-  <button [disabled]="clicked" (click)="createKey()">Create one!</button>
+  Want to make a show?
+  <button [disabled]="clickedCreate" (click)="createKey()">
+    Create a new Key!
+  </button>
 </p>
 <div id="newKey"></div>
 
-<app-reservation-name [insertedKey]="insertedKey"> </app-reservation-name>
+<app-reservation-name
+  [insertedKey]="insertedKey"
+  (insertedNameEmitter)="insertedName = $event"
+>
+</app-reservation-name>
+<app-reservation
+  [insertedKey]="insertedKey"
+  [insertedName]="insertedName"
+  [parterre]="parterre"
+  [loges]="loges"
+>
+</app-reservation>

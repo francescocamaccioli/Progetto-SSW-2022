@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, EventEmitter, Output, VERSION } from '@angular/core';
 import { ShowdbService } from './showdb.service';
 
 @Component({
@@ -9,10 +9,11 @@ import { ShowdbService } from './showdb.service';
 export class AppComponent {
   // 628c28c4
   insertedKey: string;
+  insertedName: string;
   createdKey: string;
   parterre: any[] = [];
   loges: any[] = [];
-  clicked = false;
+  clickedCreate = false;
 
   constructor(private dbservice: ShowdbService) {}
 
@@ -44,10 +45,10 @@ export class AppComponent {
           .concat(new Array(4).fill('').map(() => Array(6).fill('x')));
         this.dbservice.setData(newKey, theater).subscribe({
           next: (newKey: any) => {
-            this.clicked = true;
+            this.clickedCreate = true;
             this.createdKey = key;
             newK.innerHTML = '';
-            newK.innerHTML += 'New Key: ' + key;
+            newK.innerHTML += 'New Show Key: ' + key;
           },
           error: (err) => {
             console.error(`Observer error: ${JSON.stringify(err)}`);
