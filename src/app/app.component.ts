@@ -7,7 +7,6 @@ import { ShowdbService } from './showdb.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // 628c28c4
   insertedKey: string;
   insertedName: string;
   createdKey: string;

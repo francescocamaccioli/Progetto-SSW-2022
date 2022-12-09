@@ -47,7 +47,7 @@ export class ReservationComponent implements OnInit {
           +(this.tempSeat.row + 1) +
           ' ' +
           (this.tempSeat.column + 1) +
-          ' reservation Confirmed';
+          ' reservation confirmed for ' + this.insertedName + '!';
         this.tempSeat = undefined;
       },
       error: (err) =>
