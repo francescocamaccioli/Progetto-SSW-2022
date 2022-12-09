@@ -17,17 +17,17 @@ export class ReservationComponent implements OnInit {
   constructor(private dbservice: ShowdbService) {}
 
   pickSeat(row: number, column: number, area: string, istaken: boolean) {
+    this.tempSeat = { row, column, area, istaken };
     if (istaken) {
       this.notification =
-        'Seat ' + (column + 1) + ' ' + (row + 1) + ' is already occupied';
+        'Seat ' + (column + 1) + ' ' + (row + 1) + ' is already taken.';
     } else {
-      this.tempSeat = { row, column, area, istaken };
       this.notification =
-        'You picked seat ' +
+        'Seat ' +
         (column + 1) +
         ' ' +
         (row + 1) +
-        '. Want to confirm it?';
+        ' is free. Want to reserve it?';
     }
   }
 
