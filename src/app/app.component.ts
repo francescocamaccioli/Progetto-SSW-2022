@@ -18,18 +18,18 @@ export class AppComponent {
   constructor(private dbservice: ShowdbService) {}
 
   updateKey(key: string) {
-    var div = document.getElementById('errorDiv');
+    var errordiv = document.getElementById('errorDiv');
     this.dbservice.getData(key).subscribe({
       next: (x: any) => {
-        div.innerHTML = '';
+        errordiv.innerHTML = '';
         this.insertedKey = key;
         const theater = JSON.parse(x);
         this.parterre = theater.slice(0, 7);
         this.loges = theater.slice(7);
       },
       error: (err) => {
-        div.innerHTML = '';
-        div.innerHTML += 'Invalid Key!';
+        errordiv.innerHTML = '';
+        errordiv.innerHTML += 'Invalid Key!';
       },
     });
   }

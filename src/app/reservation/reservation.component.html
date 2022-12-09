@@ -1,13 +1,17 @@
 <div *ngIf="insertedName !== undefined">
   <p>{{ insertedName }} pick ur seat:</p>
-
+  <p>{{ notification }}</p>
+  <button *ngIf="tempSeat !== undefined" (click)="confirmSeat()">
+    Confirm
+  </button>
   <h3>Parterre</h3>
   <div *ngFor="let row of parterre; let c1 = index">
     <button
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'p', seat != 'x')"
+      style="height:25px;width:45px;border-radius: 8px"
     >
-      {{ c1 + 1 }} {{ c2 + 1 }}
+      {{ c2 + 1 }} {{ c1 + 1 }}
     </button>
   </div>
 
@@ -16,8 +20,9 @@
     <button
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'l', seat != 'x')"
+      style="height:25px;width:45px;border-radius: 8px"
     >
-      {{ c1 + 1 }} {{ c2 + 1 }}
+      {{ c2 + 1 }} {{ c1 + 1 }}
     </button>
   </div>
 </div>
