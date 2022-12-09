@@ -20,29 +20,34 @@ export class ReservationComponent implements OnInit {
     this.tempSeat = { row, column, area, istaken };
     if (istaken) {
       this.notification =
-        'Seat ' + (column + 1) + ' ' + (row + 1) + ' is already taken.';
+        'Seat ' + (row + 1) + ' ' + (column + 1) + ' is already taken.';
     } else {
       this.notification =
         'Seat ' +
-        (column + 1) +
-        ' ' +
         (row + 1) +
+        ' ' +
+        (column + 1) +
         ' is free. Want to reserve it?';
     }
   }
 
   confirmSeat() {
     if (this.tempSeat.area === 'p') {
-      this.parterre[this.tempSeat.column][this.tempSeat.row] =
+      this.parterre[this.tempSeat.row][this.tempSeat.column] =
         this.insertedName;
     }
     if (this.tempSeat.area === 'l') {
-      this.loges[this.tempSeat.column][this.tempSeat.row] = this.insertedName;
+      this.loges[this.tempSeat.row][this.tempSeat.column] = this.insertedName;
     }
     let update = this.parterre.concat(this.loges);
     this.dbservice.setData(this.insertedKey, update).subscribe({
       next: (x: any) => {
-        this.notification = 'Seat reservation Confirmed';
+        this.notification =
+          'Seat ' +
+          +(this.tempSeat.row + 1) +
+          ' ' +
+          (this.tempSeat.column + 1) +
+          ' reservation Confirmed';
         this.tempSeat = undefined;
       },
       error: (err) =>

@@ -14,9 +14,9 @@
     <button
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'p', seat != 'x')"
-      style="height:25px;width:45px;border-radius: 8px"
+      style="color:{{ seat !== 'x' ? 'red' : 'green' }}"
     >
-      {{ c2 + 1 }} {{ c1 + 1 }}
+      {{ c1 + 1 }} {{ c2 + 1 }}
     </button>
   </div>
 
@@ -25,9 +25,9 @@
     <button
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'l', seat != 'x')"
-      style="height:25px;width:45px;border-radius: 8px"
+      style="color:{{ seat !== 'x' ? 'red' : 'green' }}"
     >
-      {{ c2 + 1 }} {{ c1 + 1 }}
+      {{ c1 + 1 }} {{ c2 + 1 }}
     </button>
   </div>
 </div>
