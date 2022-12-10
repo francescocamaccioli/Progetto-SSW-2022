@@ -1,8 +1,11 @@
 <div *ngIf="insertedName !== undefined">
-  <p>{{ insertedName }} pick ur seat:</p>
+  <p>
+    <strong>{{ insertedName }}</strong> select the seat you would like to
+    reserve:
+  </p>
   <div>
     <strong>
-    {{ notification }}
+      {{ notification }}
     </strong>
     <button
       *ngIf="tempSeat !== undefined && tempSeat.istaken === false"
@@ -16,7 +19,9 @@
     <button
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'p', seat != 'x')"
-      style="color:{{ seat !== 'x' ? 'red' : 'green' }}"
+      style="background-color:{{
+        seat !== 'x' ? 'rgb(255, 77, 77)' : 'rgb(128, 255, 128)'
+      }}"
     >
       {{ c1 + 1 }} {{ c2 + 1 }}
     </button>
@@ -27,7 +32,9 @@
     <button
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'l', seat != 'x')"
-      style="color:{{ seat !== 'x' ? 'red' : 'green' }}"
+      style="background-color:{{
+        seat !== 'x' ? 'rgb(255, 77, 77)' : 'rgb(128, 255, 128)'
+      }}"
     >
       {{ c1 + 1 }} {{ c2 + 1 }}
     </button>

@@ -7,6 +7,7 @@ import { ShowdbService } from './showdb.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  // testing key = 782dc825
   insertedKey: string;
   insertedName: string;
   createdKey: string;
@@ -47,7 +48,7 @@ export class AppComponent {
             this.clickedCreate = true;
             this.createdKey = key;
             newK.innerHTML = '';
-            newK.innerHTML += 'New Show Key: ' + key;
+            newK.innerHTML += 'New Show Key: <strong>' + key + '</strong>';
           },
           error: (err) => {
             console.error(`Observer error: ${JSON.stringify(err)}`);

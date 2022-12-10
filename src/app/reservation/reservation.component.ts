@@ -43,11 +43,11 @@ export class ReservationComponent implements OnInit {
     this.dbservice.setData(this.insertedKey, update).subscribe({
       next: (x: any) => {
         this.notification =
-          'Seat ' +
+          'Row ' +
           +(this.tempSeat.row + 1) +
-          ' ' +
+          ' Seat ' +
           (this.tempSeat.column + 1) +
-          ' reservation confirmed for ' + this.insertedName + '!';
+          ': Reservation Confirmed for ' + this.insertedName + '!';
         this.tempSeat = undefined;
       },
       error: (err) =>
