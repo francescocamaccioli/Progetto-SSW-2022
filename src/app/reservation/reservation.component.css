@@ -1,7 +1,11 @@
+label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
 input {
-  width: none !important;
-  float: none !important;
-  border-radius: none !important;
-  border: none !important;
-  padding-left: none !important;
+  width: 13px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  vertical-align: bottom !important;
 }
