@@ -19,8 +19,6 @@ Divisione della struttura dell'app in 3 componenti e 1 servizio:
 
 - **showdb**: servizio che realizza le Richieste HTTP (get, set e new) al database Kvaas
 
-### Chiave utilizzata
-
-782dc825
+#### Chiave utilizzata: 782dc825
 
 [⚡Fork & Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-ivy-g9gwbn)
