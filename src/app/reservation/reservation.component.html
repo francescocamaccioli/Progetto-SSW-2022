@@ -1,3 +1,4 @@
+<div>Fast Booking Mode</div>
 <div *ngIf="insertedName !== undefined">
   <p>
     <strong>{{ insertedName }}</strong> select the seat you would like to
@@ -20,7 +21,7 @@
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'p', seat != 'x')"
       style="background-color:{{
-        seat !== 'x' ? 'rgb(255, 77, 77)' : 'rgb(128, 255, 128)'
+        seat !== 'x' ? 'rgb(255, 112, 77)' : 'rgb(153, 255, 153)'
       }}"
     >
       {{ c1 + 1 }} {{ c2 + 1 }}
@@ -33,7 +34,7 @@
       *ngFor="let seat of row; let c2 = index"
       (click)="pickSeat(c1, c2, 'l', seat != 'x')"
       style="background-color:{{
-        seat !== 'x' ? 'rgb(255, 77, 77)' : 'rgb(128, 255, 128)'
+        seat !== 'x' ? 'rgb(255, 112, 77)' : 'rgb(153, 255, 153)'
       }}"
     >
       {{ c1 + 1 }} {{ c2 + 1 }}
