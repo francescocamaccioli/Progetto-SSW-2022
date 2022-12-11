@@ -12,6 +12,7 @@ export class ReservationComponent implements OnInit {
   @Input() parterre: any[];
   @Input() loges: any[];
   notification: string;
+  fbm: boolean = false; //fast booking mode toggle
   tempSeat: { row: number; column: number; area: string; istaken: boolean };
 
   constructor(private dbservice: ShowdbService) {}
@@ -22,6 +23,10 @@ export class ReservationComponent implements OnInit {
       this.notification =
         'Seat ' + (row + 1) + ' ' + (column + 1) + ' is already taken.';
     } else {
+      if (this.fbm) {
+        this.confirmSeat();
+        return;
+      }
       this.notification =
         'Seat ' +
         (row + 1) +
@@ -47,7 +52,9 @@ export class ReservationComponent implements OnInit {
           +(this.tempSeat.row + 1) +
           ' Seat ' +
           (this.tempSeat.column + 1) +
-          ': Reservation Confirmed for ' + this.insertedName + '!';
+          ': Reservation Confirmed for ' +
+          this.insertedName +
+          '!';
         this.tempSeat = undefined;
       },
       error: (err) =>
