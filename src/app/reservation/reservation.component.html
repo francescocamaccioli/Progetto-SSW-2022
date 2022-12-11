@@ -1,7 +1,7 @@
 <p>
   <label *ngIf="insertedKey !== undefined">
     Fast Booking Mode
-    <input id="fastbooking" type="checkbox" (click)="this.fbm = true"
+    <input #toggle type="checkbox" (click)="toggleFbm(toggle.checked)"
   /></label>
 </p>
 

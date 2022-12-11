@@ -17,6 +17,10 @@ export class ReservationComponent implements OnInit {
 
   constructor(private dbservice: ShowdbService) {}
 
+  toggleFbm(toggle: boolean) {
+    this.fbm = toggle;
+  }
+
   pickSeat(row: number, column: number, area: string, istaken: boolean) {
     this.tempSeat = { row, column, area, istaken };
     if (istaken) {
