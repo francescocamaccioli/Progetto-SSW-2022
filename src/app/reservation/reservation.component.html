@@ -1,5 +1,8 @@
 <p>
-  <label *ngIf="insertedKey !== undefined">
+  <label
+    style="position:relative; right: 72px"
+    *ngIf="insertedKey !== undefined"
+  >
     Fast Booking Mode
     <input #toggle type="checkbox" (click)="toggleFbm(toggle.checked)"
   /></label>

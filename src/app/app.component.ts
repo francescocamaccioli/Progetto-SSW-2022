@@ -29,7 +29,7 @@ export class AppComponent {
       },
       error: (err) => {
         errordiv.innerHTML = '';
-        errordiv.innerHTML += 'Invalid Key!';
+        errordiv.innerHTML += '<strong>Invalid Key!</strong>';
       },
     });
   }
@@ -51,12 +51,12 @@ export class AppComponent {
             newK.innerHTML += 'New Show Key: <strong>' + key + '</strong>';
           },
           error: (err) => {
-            console.error(`Observer error: ${JSON.stringify(err)}`);
+            console.error(`setData Observer error`);
           },
         });
       },
       error: (err) => {
-        console.error(`Observer error: ${JSON.stringify(err)}`);
+        console.error(`newData Observer error`);
       },
     });
   }

@@ -61,8 +61,7 @@ export class ReservationComponent implements OnInit {
           '!';
         this.tempSeat = undefined;
       },
-      error: (err) =>
-        console.error(`Observer got an error: ${JSON.stringify(err)}`),
+      error: (err) => console.error(`setData Observer error`),
     });
   }
 

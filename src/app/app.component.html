@@ -1,20 +1,20 @@
 <h1>Theater Show Booking</h1>
 <p>
-  Insert Show Key:
+  <span style="position:relative; right: 30px"> Insert Show Key: </span>
   <br />
   <input type="text" maxlength="8" placeholder="********" #tempKey />
   <button (click)="updateKey(tempKey.value); tempKey.value = ''">
     Confirm
   </button>
 </p>
-<div id="errorDiv"></div>
+<div id="errorDiv" style="position:relative; right: 30px; color:red"></div>
 <p>
   Want to make a show?
   <button [disabled]="clickedCreate" (click)="createKey()">
     Create a new Key!
   </button>
 </p>
-<div id="newKey"></div>
+<p id="newKey"></p>
 
 <app-reservation-name
   [insertedKey]="insertedKey"
