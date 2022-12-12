@@ -28,8 +28,7 @@ export class AppComponent {
         this.loges = theater.slice(7);
       },
       error: (err) => {
-        errordiv.innerHTML = '';
-        errordiv.innerHTML += '<strong>Invalid Key!</strong>';
+        errordiv.innerHTML = '<strong>Invalid Key!</strong>';
       },
     });
   }
@@ -47,8 +46,7 @@ export class AppComponent {
           next: (newKey: any) => {
             this.clickedCreate = true;
             this.createdKey = key;
-            newK.innerHTML = '';
-            newK.innerHTML += 'New Show Key: <strong>' + key + '</strong>';
+            newK.innerHTML = 'New Show Key: <strong>' + key + '</strong>';
           },
           error: (err) => {
             console.error(`setData Observer error`);
