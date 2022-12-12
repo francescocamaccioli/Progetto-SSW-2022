@@ -23,4 +23,6 @@ Divisione della struttura dell'app in 3 componenti e 1 servizio:
 
 - **showdb**: servizio che realizza le Richieste HTTP (get, set e new) al database Kvaas
 
-#### Parti opzionali
+### Parti opzionali
+
+- Prenotazione Veloce
